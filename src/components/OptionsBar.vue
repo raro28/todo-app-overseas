@@ -1,38 +1,44 @@
 <template>
-  <v-card height="100%">
-    <v-toolbar dark color="pink">
-      <v-toolbar-title>Options</v-toolbar-title>
-    </v-toolbar>
-    <v-list>
-      <v-list-group
-        v-for="item in items"
-        v-bind:key="item.action"
-        v-bind:prepend-icon="item.action"
-        v-model="item.active"
-        no-action
-      >
-        <v-list-item slot="activator">
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item
-          v-for="option in item.options"
-          v-bind:key="option.title"
-          v-on:click="apply(item.action, option.by)"
+  <div>
+    <v-card height="100%">
+      <v-toolbar dark color="pink">
+        <v-toolbar-title>Options</v-toolbar-title>
+      </v-toolbar>
+      <v-list>
+        <v-list-group
+          v-for="item in items"
+          v-bind:key="item.action"
+          v-bind:prepend-icon="item.action"
+          v-model="item.active"
+          no-action
         >
-          <v-list-item-content>
-            <v-list-item-title>{{ option.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
-    </v-list>
-  </v-card>
+          <v-list-item slot="activator">
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-for="option in item.options"
+            v-bind:key="option.title"
+            v-on:click="apply(item.action, option.by)"
+          >
+            <v-list-item-content>
+              <v-list-item-title>{{ option.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-card>
+    <background-changer />
+  </div>
 </template>
 
 <script>
+import BackgroundChanger from "./BackgroundChanger";
+
 export default {
   name: "OptionsBar",
+  components: { BackgroundChanger },
   data: function() {
     return {
       items: [
