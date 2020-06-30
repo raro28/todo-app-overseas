@@ -1,17 +1,13 @@
 <template>
   <v-app>
-    <Todo></Todo>
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Todo from './components/Todo'
-
 export default {
   name: 'App',
-  components: {
-    Todo
-  }
+  components: {}
 }
 </script>
 

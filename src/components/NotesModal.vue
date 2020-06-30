@@ -46,7 +46,7 @@ export default {
   name: "NotesModal",
   data: function() {
     return {
-      open: false,
+      open: true,
       note: "",
       notes: [
         {

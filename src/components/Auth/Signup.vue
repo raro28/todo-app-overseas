@@ -42,9 +42,9 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
-            <v-btn rounded dark color="black">Sign up</v-btn>
+            <v-btn to="/login" rounded dark color="black">Log in</v-btn>
             <v-spacer></v-spacer>
-            <v-btn rounded color="success">
+            <v-btn rounded color="success" v-on:click="register">
               Register
               <v-icon>keyboard_arrow_up</v-icon>
             </v-btn>
@@ -72,6 +72,9 @@ export default {
   methods: {
     valid: function() {
       return this.password === this.passwordConfirm;
+    },
+    register: function(){
+      this.$router.push('/login');
     }
   }
 };

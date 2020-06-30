@@ -6,7 +6,7 @@
           <lists />
         </v-flex>
         <v-flex lg6 pr-2 pl-2>
-          <tasks />
+          <router-view name="tasks" v-bind:key="$route.fullPath"></router-view>
         </v-flex>
         <v-flex lg3 pl-2>
           <options-bar />
@@ -25,12 +25,11 @@
 </template>
 
 <script>
-import Tasks from "./Tasks";
 import Lists from "./Lists";
 import OptionsBar from "./OptionsBar";
 
 export default {
   name: "todo",
-  components: { Lists, Tasks, OptionsBar }
+  components: { Lists, OptionsBar }
 };
 </script>

@@ -19,9 +19,13 @@
     </v-list>
     <v-divider></v-divider>
     <v-list style="height: calc(100vh - 164px); overflow-y: scroll;">
-      <v-list-item v-for="(list, key) in lists" v-bind:key="key">
+      <v-list-item
+        v-bind:to="{ name:'tasks', params: {id: list.id}}"
+        v-for="(list, key) in lists"
+        v-bind:key="key"
+      >
         <v-list-item-content>
-            <v-list-item-title>{{ list.title }}</v-list-item-title>
+          <v-list-item-title>{{ list.title }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
           <v-list-item-title>{{ list.tasks }}</v-list-item-title>

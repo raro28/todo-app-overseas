@@ -2,7 +2,7 @@
   <div>
     <v-card style="height: 100%; overflow: hidden">
       <v-toolbar dark color="blue">
-        <v-toolbar-title>Title of the list</v-toolbar-title>
+        <v-toolbar-title>Title of the list {{listId}}</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon>
           <v-icon>search</v-icon>
@@ -20,18 +20,17 @@
         </v-layout>
       </v-card-actions>
     </v-card>
-    <notes-modal />
+    <router-view v-bind:key="$route.fullPath" name="notes"></router-view>
   </div>
 </template>
 
 <script>
 import Task from "./Task";
 import NewTask from "./NewTask";
-import NotesModal from "./NotesModal";
 
 export default {
   name: "Tasks",
-  components: { Task, NewTask, NotesModal },
+  components: { Task, NewTask},
   data: function() {
     return {
       tasks: [
@@ -55,6 +54,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    listId: function(){
+      return this.$route.params.id;
+    }
   }
 };
 </script>

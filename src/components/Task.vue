@@ -1,7 +1,7 @@
 <template>
   <v-list-item>
     <v-list-item-action>
-      <v-btn icon color="pink">
+      <v-btn icon color="pink" v-on:click="editModal">
         <v-icon>edit</v-icon>
       </v-btn>
     </v-list-item-action>
@@ -25,9 +25,17 @@ export default {
     task: Object
   },
   methods: {
-      toggle: function(){
-          this.task.isComplete = !this.task.isComplete
-      }
+    toggle: function() {
+      this.task.isComplete = !this.task.isComplete;
+    },
+    editModal: function(){
+      this.$router.push({
+        name: 'notes',
+        params: {
+          tid: this.task.id
+        }
+      });
+    }
   }
 };
 </script>
