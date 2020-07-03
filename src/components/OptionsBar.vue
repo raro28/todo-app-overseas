@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="show">
     <v-card height="100%">
       <v-toolbar dark color="pink">
         <v-toolbar-title>Options</v-toolbar-title>
@@ -39,6 +39,11 @@ import BackgroundChanger from "./BackgroundChanger";
 export default {
   name: "OptionsBar",
   components: { BackgroundChanger },
+  computed: {
+    show: function(){
+      return this.$route.params.id;
+    }
+  },
   data: function() {
     return {
       items: [
