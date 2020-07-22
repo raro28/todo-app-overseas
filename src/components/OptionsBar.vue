@@ -108,6 +108,22 @@ export default {
     },
     apply: function(action, by) {
       console.log(action + " " + by);
+      switch (action) {
+        case "filter":
+            switch (by) {
+              case "background":
+                  this.$store.commit("SET_DRAWER", true);
+                break;
+              case "remove":
+                  this.$store.commit("SET_NOTIFICATION", {
+                    display: true,
+                    clazz: 'success',
+                    text: 'list removed'
+                    });
+                break;
+            }
+          break;
+      }
     }
   }
 };

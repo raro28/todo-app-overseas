@@ -49,12 +49,21 @@ export default {
   name: "BackgroundChanger",
   data: function() {
     return {
-      open: false,
       imageUrl: "",
       imageName: "",
       loading: false,
       imageFile: null
     };
+  },
+  computed: {
+    open: {
+      get: function (){
+        return this.$store.getters.DRAWER;
+      },
+      set: function(value){
+        this.$store.commit("SET_DRAWER", value);
+      },
+    }
   },
   methods: {
     pickFile: function() {
