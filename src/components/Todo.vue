@@ -21,15 +21,17 @@
             </v-flex>
         </v-layout>
     </v-footer>
+    <notification />
   </div>
 </template>
 
 <script>
 import Lists from "./Lists";
 import OptionsBar from "./OptionsBar";
+import Notification from "./Notification";
 
 export default {
   name: "todo",
-  components: { Lists, OptionsBar }
+  components: { Lists, OptionsBar, Notification }
 };
 </script>
