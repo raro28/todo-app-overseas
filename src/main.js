@@ -2,6 +2,8 @@ import Vue from 'vue';
 import vuetify from '@/plugins/vuetify';
 import VueRouter from 'vue-router';
 
+import store from './stores/store';
+
 import App from './App.vue';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
@@ -51,6 +53,7 @@ const router = new VueRouter({
 
 new Vue({
   router,
+  store,
   vuetify,
   render: h => h(App),
 }).$mount('#app')
